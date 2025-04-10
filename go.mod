@@ -1,4 +1,4 @@
-module consul
+module github.com/consul
 
 go 1.23.0
 
