@@ -1,11 +1,13 @@
 # scaling-couscous
-goland consul封装
-Consul 注册只是“告诉别人我存在”，能不能用，还得靠调用方主动做服务发现和负载均衡。
+
+### goland consul封装
+
+### Consul 注册只是“告诉别人我存在”，能不能用，还得靠调用方主动做服务发现和负载均衡。
 
 
 
 初始化consul服务
-        func InitConsul() {
+`        func InitConsul() {
         config := api.DefaultConfig()
         config.Address = fmt.Sprintf("%s:%d", "you consul ip", 8500)
         client, err := api.NewClient(config)
@@ -13,11 +15,11 @@ Consul 注册只是“告诉别人我存在”，能不能用，还得靠调用�
             return
         }
         ConsulClient = client 
-       }
+       }`
 
 
 1.	实例化工具
-      consul := tools.NewConsul("ip", 8500)
+      `consul := tools.NewConsul("ip", 8500)`
 
    2. 服务过滤 
 `      filterConsul, err := consul.FilterConsul("服务名称")
@@ -26,7 +28,7 @@ Consul 注册只是“告诉别人我存在”，能不能用，还得靠调用�
       return
       }`
       3. 如果未找到则注册
-           `` `if len(filterConsul) == 0 {
+``           if len(filterConsul) == 0 {
             fmt.Println("service not found consul register service:")
 
             // gRPC健康检查配置
