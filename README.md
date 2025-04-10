@@ -6,7 +6,7 @@ Consul 注册只是“告诉别人我存在”，能不能用，还得靠调用�
 
 
 
-`        func InitConsul() {
+       func InitConsul() {
         config := api.DefaultConfig()
         config.Address = fmt.Sprintf("%s:%d", "you consul ip", 8500)
         client, err := api.NewClient(config)
@@ -14,7 +14,7 @@ Consul 注册只是“告诉别人我存在”，能不能用，还得靠调用�
             return
         }
         ConsulClient = client 
-       }`
+       }
 
 
         if len(filterConsul) == 0 {
@@ -26,7 +26,7 @@ Consul 注册只是“告诉别人我存在”，能不能用，还得靠调用�
             Interval:                       "15s",                 // 健康检查间隔
             Timeout:                        "5s",                  // 超时时间
             DeregisterCriticalServiceAfter: "30m",                 // 故障30分钟后注销服务
-            }`
+            }
 
             // 注册到 Consul
        err = consul.RegisterConsulWithCheck("serviceName", "ip", port, []string{""}, grpcCheck)
@@ -37,7 +37,7 @@ Consul 注册只是“告诉别人我存在”，能不能用，还得靠调用�
       }
       } else {
             fmt.Println("服务已经注册到consul")
-      }``
+      }
 
               services, err := consul.GetConsulServices()
               if err != nil {
