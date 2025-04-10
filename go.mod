@@ -1,4 +1,4 @@
-module github.com/winksai/scaling-couscous
+module consul
 
 
 go 1.23.0
